@@ -1,0 +1,23 @@
+Pequeno "How To" que eu fiz para fazer o container de docker com one api disponibilizado pela intel a funcionar com uma placa de video da Nvidia. Os passos são:
+
+1 - Instalar os drivers da nvidia correspondentes ao modelo da mesma, via gerenciador de pacotes de sua distribuição.
+2 - Instalar o docker engine consultando o site oficial do mesmo.
+3 - Instalar o pacote nvidia container toolkit para conseguirmos executar um container com a nossa placa de video. Link útil: https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
+4 - Fazer o "pull" da imagem de docker com ubuntu 22.04 disponível no site oficial do oneApi toolkit, e após isso, executar o container com o seguinte comando:
+	$ docker run --gpus all -it image_id
+	
+	Tip: Certifique-se de substituir image_id pelo nome da imagem ou seu id.
+
+5 - Já dentro desse container, atualize o sistema e instale um editor de código de sua preferência, depois instale o pacote nvidia-cuda-toolkit.
+6 - Instale o plugin para cuda disponível nesse site: https://developer.codeplay.com/products/oneapi/nvidia/2024.1.0/guides/get-started-guide-nvidia
+7 - Agora seu ambiente está pronto.
+
+Comandos úteis: 
+docker start container_id
+docker stop container_id
+docker exec -it container_id your_shell
+
+Links úteis:
+https://saturncloud.io/blog/how-to-use-gpu-from-a-docker-container-a-guide-for-data-scientists-and-software-engineers/
+https://www.intel.com/content/www/us/en/docs/oneapi-base-toolkit/get-started-guide-linux/2024-0/using-containers-with-the-command-line.html
+https://docs.docker.com/engine/install/

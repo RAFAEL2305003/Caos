@@ -1,0 +1,28 @@
+#cloud-config
+autoinstall:
+    version: 1
+    identity:
+        realname: 'Rafael Rodrigues'
+        hostname: ubuntu
+        username: rafael
+        password: '$y$j9T$uhkxlm8nUQaNu.6rl4k2d.$DIldpYy96OHg8lFjfXfc671BZcGWkPOmaDONGAhGSg3'
+    locale: en_US.utf8
+    keyboard:
+        layout: us
+    timezone: "America/Sao_Paulo"
+    packages:
+        - git
+        - wget
+        - curl
+        - build-essential
+        - clang-format
+        - exuberant-ctags
+        - vim
+        - geany
+        - geany-plugins
+    codecs:
+        install: true
+    drivers:
+        install: true
+    updates: all
+    shutdown: reboot

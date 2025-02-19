@@ -1,5 +1,5 @@
 CXX := icpx
-CXXFLAGS := -ldnnl
+CXXFLAGS := -ldnnl -fsycl
 SRCS := $(wildcard *.cxx)
 OBJS := $(SRCS:.cxx=.o)
 
@@ -9,11 +9,11 @@ final: $(OBJS)
 		$(CXX) $(OBJS) -o $@ $(CXXFLAGS)
 
 %.o: %.cxx
-		$(CXX) $^ -c -o $@
+		$(CXX) $^ -c -o $@ $(CXXFLAGS)
 
-exec: 
+exec: final
 		@./final
 
 rm:
-		rm -i $(OBJS)
+		rm -f $(OBJS)
 		rm -i final

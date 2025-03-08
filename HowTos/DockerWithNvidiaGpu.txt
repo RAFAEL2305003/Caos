@@ -4,7 +4,8 @@ Pequeno "How To" que eu fiz para fazer o container de docker com one api disponi
 2 - Instalar o docker engine consultando o site oficial do mesmo.
 3 - Instalar o pacote nvidia container toolkit para conseguirmos executar um container com a nossa placa de video. Link útil: https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
 4 - Fazer o "pull" da imagem de docker com ubuntu 22.04 disponível no site oficial do oneApi toolkit, e após isso, executar o container com o seguinte comando:
-	$ docker run --gpus all -it image_id
+	$ docker run --gpus all -it image_id (on ubuntu)
+        $ docker run --rm --gpus all --privileged -it image_id (on fedora)
 	
 	Tip: Certifique-se de substituir image_id pelo nome da imagem ou seu id.
 
